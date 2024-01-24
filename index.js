@@ -3,14 +3,14 @@ const token = '6934019405:AAHtSY8hZPGEGV79PcKOoYQ9u0Ant_cEa8Q';
 
 const bot = new TelegramBot(token, {polling: true});
 
-bot.onText(/\/start/ ,async msg=>{
-    let aim = await bot.getChat(msg.text.split(' ')[1]);
+bot.onText(/\/start/ , msg=>{
     bot.sendMessage(msg.chat.id, `welcome to my bot ${msg.chat.first_name}` , 
         {
             reply_markup : {
                 'keyboard' : [
-                    ['link of bot', 'mylink'],
-                    ['about']
+                    ['link of bot'],
+                    ['link for unknown bot'],
+                    ['my username']
                 ]
             }
         }
@@ -26,12 +26,11 @@ bot.on('message', msg=>{
         case 'link of bot':
             bot.sendMessage(msg.chat.id, ' t.me/PsyonsBot')
             break;
-        case 'mylink':
+        case 'link for unknown bot':
             bot.sendMessage(msg.chat.id , `https://t.me/PsyonsBot?start=${msg.chat.id}`)
             break;
-        case 'about':
-            break;
-        default:
+        case 'my username':
+            bot.sendMessage(msg.chat.id, `your username is ${msg.chat.username}`)
             break;
     }
 });
