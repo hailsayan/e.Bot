@@ -27,7 +27,7 @@ bot.on('message', msg=>{
             bot.sendMessage(msg.chat.id, ' t.me/PsyonsBot')
             break;
         case 'link for unknown bot':
-            bot.sendMessage(msg.chat.id , `https://t.me/PsyonsBot?start=${msg.chat.id}`)
+            bot.sendMessage(msg.chat.id , `here is your id for using in unknown bot ${msg.chat.id}`)
             break;
         case 'my username':
             bot.sendMessage(msg.chat.id, `your username is ${msg.chat.username}`)
